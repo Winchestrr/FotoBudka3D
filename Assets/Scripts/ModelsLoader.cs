@@ -5,7 +5,7 @@ using System.IO;
 
 public class ModelsLoader : MonoBehaviour
 {
-    public List<Object> modelsList = new List<Object>();
+    public List<GameObject> modelsList = new List<GameObject>();
 
     public string inputDir;
     public string[] fileEntries;
@@ -26,7 +26,7 @@ public class ModelsLoader : MonoBehaviour
 
             if (splitted.Length == 2)
             {
-                Object model = Resources.Load<Object>("Input/" + splitted[0]);
+                GameObject model = Resources.Load<Object>("Input/" + splitted[0]) as GameObject;
                 modelsList.Add(model);
             }
         }
