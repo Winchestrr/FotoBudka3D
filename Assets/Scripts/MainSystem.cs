@@ -5,7 +5,7 @@ using Cinemachine;
 
 public class MainSystem : MonoBehaviour
 {
-    public ModelsLoader _loader;
+    private ModelsLoader _loader;
     public GameObject currentModel;
     public GameObject cinemachineGO;
     private CinemachineFreeLook _cmFreeLook;
@@ -101,14 +101,20 @@ public class MainSystem : MonoBehaviour
         if (Input.GetAxis("Mouse ScrollWheel") < 0)
         {
             _orbits[0].m_Radius = Mathf.Lerp(_orbits[0].m_Radius, zoomOutMax, zoomSpeed * Time.deltaTime);
-            _orbits[1].m_Radius = Mathf.Lerp(_orbits[1].m_Radius, zoomOutMax, zoomSpeed * 2 * Time.deltaTime);
+            _orbits[1].m_Radius = Mathf.Lerp(_orbits[1].m_Radius, zoomOutMax, zoomSpeed * 1.5f * Time.deltaTime);
             _orbits[2].m_Radius = Mathf.Lerp(_orbits[2].m_Radius, zoomOutMax, zoomSpeed * Time.deltaTime);
+
+            _orbits[0].m_Height = Mathf.Lerp(_orbits[0].m_Height, zoomOutMax, zoomSpeed * Time.deltaTime);
+            _orbits[2].m_Height = Mathf.Lerp(_orbits[2].m_Height, -zoomOutMax, zoomSpeed * Time.deltaTime);
         }
         if (Input.GetAxis("Mouse ScrollWheel") > 0)
         {
             _orbits[0].m_Radius = Mathf.Lerp(_orbits[0].m_Radius, zoomInMax, zoomSpeed * Time.deltaTime);
-            _orbits[1].m_Radius = Mathf.Lerp(_orbits[1].m_Radius, zoomInMax, zoomSpeed * 2 * Time.deltaTime);
+            _orbits[1].m_Radius = Mathf.Lerp(_orbits[1].m_Radius, zoomInMax, zoomSpeed * 1.5f * Time.deltaTime);
             _orbits[2].m_Radius = Mathf.Lerp(_orbits[2].m_Radius, zoomInMax, zoomSpeed * Time.deltaTime);
+
+            _orbits[0].m_Height = Mathf.Lerp(_orbits[0].m_Height, zoomInMax, zoomSpeed * Time.deltaTime);
+            _orbits[2].m_Height = Mathf.Lerp(_orbits[2].m_Height, -zoomInMax, zoomSpeed * Time.deltaTime);
         }
     }
 }

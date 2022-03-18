@@ -43,7 +43,6 @@ public class CustomButton : MonoBehaviour
         }
     }
 
-    //nie dziala
     IEnumerator FadeOutIE()
     {
         bgdAlpha.alpha = Mathf.Lerp(bgdAlpha.alpha, 0, fadeSpeed * Time.deltaTime);
@@ -56,7 +55,7 @@ public class CustomButton : MonoBehaviour
         else
         {
             yield return new WaitForEndOfFrame();
-            StartCoroutine(FadeInIE());
+            StartCoroutine(FadeOutIE());
         }
     }
 }

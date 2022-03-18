@@ -17,7 +17,7 @@ public class ModelsLoader : MonoBehaviour
 
     void LoadModelsFromFile()
     {
-        inputDir = @"Assets/Resources/Input/";
+        inputDir = Application.dataPath + "/Resources/Input/";
         fileEntries = Directory.GetFiles(inputDir);
 
         foreach (string fileName in fileEntries)
